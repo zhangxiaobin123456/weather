@@ -116,7 +116,6 @@ public class ChooseAreaFragment extends Fragment {
                     //级别为县城
                     //所选县城的 id
                     String weatherId = mCountyList.get(position).weatherId;
-                    //TODO
                 }
             }
         });
