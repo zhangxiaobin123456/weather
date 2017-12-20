@@ -11,5 +11,5 @@ public class City extends DataSupport {
     //城市的代号
     public int cityCode;
     //所属省份的id
-    public int procinceId;
+    public int provinceId;
 }
