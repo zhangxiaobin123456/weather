@@ -21,7 +21,6 @@ import com.example.weather.db.County;
 import com.example.weather.db.Province;
 import com.example.weather.util.AnalysisDataUtils;
 import com.example.weather.util.HttpUtils;
-import com.example.weather.util.OkHttpClientManager;
 
 import org.litepal.crud.DataSupport;
 
