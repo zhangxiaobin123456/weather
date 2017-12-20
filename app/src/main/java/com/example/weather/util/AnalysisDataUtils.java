@@ -78,7 +78,7 @@ public class AnalysisDataUtils {
                 for (int i = 0 ; i < jsonArray.length() ; i++){
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     County county = new County();
-                    county.countyCode = jsonObject.getInt("id");
+                    county.weatherId = jsonObject.getString("weather_id");
                     county.countyName = jsonObject.getString("name");
                     county.cityId = cityId;
                     county.save();

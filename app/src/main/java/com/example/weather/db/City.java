@@ -4,12 +4,12 @@ import org.litepal.crud.DataSupport;
 
 
 public class City extends DataSupport {
-    //城市id
+    //本地数据库id  自增长
     public int id;
     //城市的名字
     public String cityName;
-    //城市的代号
+    //访问api使用到的
     public int cityCode;
-    //所属省份的id
+    //存储本地数据库的Province 表中的 id字段对应
     public int provinceId;
 }
