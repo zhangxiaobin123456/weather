@@ -5,7 +5,7 @@ android {
     buildToolsVersion "27.0.1"
 
     defaultConfig {
-        applicationId "com.example.administrator.weather"
+        applicationId "com.example.weather"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
