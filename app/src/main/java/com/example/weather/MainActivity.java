@@ -1,4 +1,4 @@
-package com.example.administrator.weather;
+package com.example.weather;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

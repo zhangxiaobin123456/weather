@@ -1,4 +1,4 @@
-package com.example.administrator.weather;
+package com.example.weather;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
