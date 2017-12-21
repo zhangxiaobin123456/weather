@@ -2,6 +2,7 @@ package com.example.weather.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Weather {
@@ -13,6 +14,6 @@ public class Weather {
     public Suggestion suggestion;
     //三天天气预报集合
     @SerializedName("daily_forecast")
-    public List<Forecast> forecastList;
+    public List<Forecast> forecastList = new ArrayList<>();
 
 }
