@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.weather.entity.Forecast;
 import com.example.weather.entity.Weather;
+import com.example.weather.service.AutoUpdateService;
 import com.example.weather.util.AnalysisDataUtils;
 import com.example.weather.util.HttpUtils;
 import com.example.weather.util.PrefUtils;
@@ -141,6 +142,9 @@ public class WeatherActivity extends AppCompatActivity {
                             Toast.makeText(WeatherActivity.this, "获取天气信息失败", Toast.LENGTH_SHORT).show();
                         }
                         mSwipeRefreshLayout.setRefreshing(false);
+
+                        Intent intent = new Intent(WeatherActivity.this, AutoUpdateService.class);
+                        startService(intent);
                     }
                 });
                 Log.e("结果", "onResponse: "+responseText);
