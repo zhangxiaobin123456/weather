@@ -45,7 +45,7 @@ public class AutoUpdateService extends Service {
 
         //使用AlarmManager
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        long elapsedRealtime = SystemClock.elapsedRealtime() + 8 * 60 * 1000;
+        long elapsedRealtime = SystemClock.elapsedRealtime() + 8 * 60 * 60 * 1000;
         Intent alarmIntent = new Intent(this,AutoUpdateService.class);
         PendingIntent pi = PendingIntent.getService(this,0,alarmIntent,0);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

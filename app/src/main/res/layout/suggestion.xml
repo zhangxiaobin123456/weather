@@ -37,4 +37,44 @@
         android:layout_margin="15dp"
         android:textColor="#fff" />
 
+    <!--空气质量-->
+    <TextView
+        android:id="@+id/air_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:textColor="#fff" />
+
+    <!--穿衣指数-->
+    <TextView
+        android:id="@+id/drsg_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:textColor="#fff" />
+
+    <!--感冒指数-->
+    <TextView
+        android:id="@+id/flu_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:textColor="#fff" />
+
+    <!--旅游指数-->
+    <TextView
+        android:id="@+id/trav_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:textColor="#fff" />
+
+    <!--紫外线指数-->
+    <TextView
+        android:id="@+id/uv_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:textColor="#fff" />
+
 </LinearLayout>

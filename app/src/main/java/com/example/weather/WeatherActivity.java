@@ -51,6 +51,12 @@ public class WeatherActivity extends AppCompatActivity {
     private TextView comfortText;
     private TextView carWashText;
     private TextView sportText;
+    private TextView airText;
+    private TextView drsgText;
+    private TextView fluText;
+    private TextView travText;
+    private TextView uvText;
+    private ImageView imageViewWeather;
     public SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
@@ -70,6 +76,7 @@ public class WeatherActivity extends AppCompatActivity {
         weatherLayout = (ScrollView) findViewById(R.id.weather_layout);
         titleCity = (TextView) findViewById(R.id.title_city);
         titleUpdateTime = (TextView) findViewById(R.id.title_update_time);
+        imageViewWeather =  (ImageView) findViewById(R.id.image_view_weather);
         degreeText = (TextView) findViewById(R.id.degree_text);
         weatherInfoText = (TextView) findViewById(R.id.weather_info_text);
         forecastLayout = (LinearLayout) findViewById(R.id.forecast_layout);
@@ -77,6 +84,11 @@ public class WeatherActivity extends AppCompatActivity {
         pm25Text = (TextView) findViewById(R.id.pm25_text);
         comfortText = (TextView) findViewById(R.id.comfort_text);
         carWashText = (TextView) findViewById(R.id.car_wash_text);
+        airText = (TextView) findViewById(R.id.air_text);
+        drsgText = (TextView) findViewById(R.id.drsg_text);
+        fluText = (TextView) findViewById(R.id.flu_text);
+        travText = (TextView) findViewById(R.id.trav_text);
+        uvText = (TextView) findViewById(R.id.uv_text);
         sportText = (TextView) findViewById(R.id.sport_text);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -147,7 +159,6 @@ public class WeatherActivity extends AppCompatActivity {
                         startService(intent);
                     }
                 });
-                Log.e("结果", "onResponse: "+responseText);
             }
 
             @Override
@@ -207,7 +218,8 @@ public class WeatherActivity extends AppCompatActivity {
         titleUpdateTime.setText("更新时间:"+updateTime);
         degreeText.setText(degree);
         weatherInfoText.setText(weatherInfo);
-
+        String url = "https://cdn.heweather.com/cond_icon/"+ weather.now.more.code+".png";
+        Glide.with(getApplicationContext()).load(url).into(imageViewWeather);
         //几天天气预报
         forecastLayout.removeAllViews();
         for (Forecast forecast : weather.forecastList) {
@@ -218,9 +230,9 @@ public class WeatherActivity extends AppCompatActivity {
             TextView maxText = (TextView) view.findViewById(R.id.max_text);
             TextView minText = (TextView) view.findViewById(R.id.min_text);
             dateText.setText("日期:"+forecast.date);
-            infoText.setText("天气:"+forecast.more.info);
-            maxText.setText("最高温度:"+forecast.temperature.max);
-            minText.setText("最低温度:"+forecast.temperature.min);
+            infoText.setText(forecast.more.info);
+            maxText.setText("高温:"+forecast.temperature.max);
+            minText.setText("低温:"+forecast.temperature.min);
             forecastLayout.addView(view);
         }
         //空气质量
@@ -229,12 +241,23 @@ public class WeatherActivity extends AppCompatActivity {
             pm25Text.setText(weather.aqi.city.pm25);
         }
         //生活建议
-        String comfort = "舒适度：" + weather.suggestion.comfort.info;
-        String carWash = "洗车指数：" + weather.suggestion.carWash.info;
-        String sport = "运行建议：" + weather.suggestion.sport.info;
+        String comfort = "舒适度指数：" +weather.suggestion.comfort.alert+" : "+ weather.suggestion.comfort.info;
+        String carWash = "洗车指数：" +weather.suggestion.carWash.alert+" : "+ weather.suggestion.carWash.info;
+        String sport = "运动指数："  +weather.suggestion.sport.alert+" : "+ weather.suggestion.sport.info;
+        String air = "空气污染扩散条件指数："  +weather.suggestion.air.alert+" : "+ weather.suggestion.air.info;
+        String flu = "感冒指数："  +weather.suggestion.flu.alert+" : "+ weather.suggestion.flu.info;
+        String trav = "旅游指数："  +weather.suggestion.trav.alert+" : "+ weather.suggestion.trav.info;
+        String uv = "紫外线指数："  +weather.suggestion.uv.alert+" : "+ weather.suggestion.uv.info;
+        String drsg = "穿衣指数："  +weather.suggestion.drsg.alert+" : "+ weather.suggestion.drsg.info;
         comfortText.setText(comfort);
         carWashText.setText(carWash);
         sportText.setText(sport);
+        airText.setText(air);
+        fluText.setText(flu);
+        travText.setText(trav);
+        uvText.setText(uv);
+        drsgText.setText(drsg);
+
 
         //显示界面
         weatherLayout.setVisibility(View.VISIBLE);
